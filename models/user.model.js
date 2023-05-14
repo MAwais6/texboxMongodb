@@ -1,11 +1,11 @@
 module.exports = (mongoose) => {
     const Schema = mongoose.Schema;
     const UserSchema = new Schema({
-        textbox1: {
+        textBox1: {
             type: String,
             required: true,
         },
-        textbox2: {
+        textBox2: {
             type: String,
             required: true,
         },
@@ -16,6 +16,7 @@ module.exports = (mongoose) => {
         },
     });
 
-    return mongoose.model('User', UserSchema);
+    const User = mongoose.model('User', UserSchema);
+    return User;
 };
 

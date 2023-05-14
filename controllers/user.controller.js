@@ -22,14 +22,15 @@ exports.create = async (req, res) => {
         });
     }
     catch (error) {
-        res.status(500).json({ message: 'Server error', error });
+        console.error(error); // Log the error directly
+        res.status(500).json({ message: 'Server error', error: error.toString() }); // Send the error message as a string
     }
 };
 
 
 exports.findAll = async (req, res) => {
     try {
-        
+
         const users = await User.find().sort({createdAT: -1});
         res.json(users);
 

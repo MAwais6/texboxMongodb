@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const config = require('./config');
 const bodyParser = require('body-parser');
+const db = require('./models/index.models');
 const indexRoutes = require('./routes/index.routes');
 
 
@@ -14,8 +15,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-const db = require('./models/index.models');
 
 app.use('/', indexRoutes);
 
